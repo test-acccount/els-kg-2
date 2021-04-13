@@ -1,0 +1,16 @@
+ru:
+  admin:
+    shared:
+      navbar:
+        incoming_packages: "Входящие посылки"
+        packages: "Посылки"
+        shipments: "Отправления"
+        users: "Пользователи"
+        news: "Новости"
+        pages: "Страницы"
+        site_pricing: "Настройки тарифов"
+        site_setting: "Настройки сайта"
+        homepage: "Главная"
+      shipment_next_date:
+        label: "Дата следующей отправки груза: "
+        edit: "Изменить"

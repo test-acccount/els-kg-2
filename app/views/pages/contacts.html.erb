@@ -1,0 +1,10 @@
+<%= content_for :title do %>
+  <%= @page.title %>
+<% end %>
+
+<h1 class="mb-3 text-center"><%= @page.title %></h1>
+<%= @page.content.html_safe %>
+
+<div class="mt-5">
+  <iframe width="900" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=%D0%B3.%20%D0%91%D0%B8%D1%88%D0%BA%D0%B5%D0%BA%2C%20%D1%83%D0%BB.%20%D0%A2%D0%BE%D0%B3%D0%BE%D0%BB%D0%BE%D0%BA%20%D0%9C%D0%BE%D0%BB%D0%B4%D0%BE%2017%2F1&key=AIzaSyB0q2h110tq07bUEMXZDyfTyLSmwXtXIUA" allowfullscreen></iframe>
+</div>

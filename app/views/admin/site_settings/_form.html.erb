@@ -1,0 +1,13 @@
+<%= simple_form_for [:admin, @site_setting] do |f| %>
+  <%= f.input :site_name %>
+  <%= f.input :site_name_short %>
+  <%= f.input :domain %>
+  <%= f.input :country %>
+  <%= f.input :country_code %>
+  <%= f.input :contact_phone_numbers %>
+
+  <div class="mt4">
+    <%= f.button :submit, class: "mr2 bg-els-purple" %>
+    <%= link_to t("cancel"), admin_root_path, class: "no-underline dib grow f6 br1 ph3 pv2 white bg-gray" %>
+  </div>
+<% end %>

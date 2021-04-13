@@ -1,0 +1,11 @@
+<h1 class="mb-4"><%= @package.tracking %></h1>
+
+<% @package.photos.each do |photo| %>
+  <%= link_to url_for(photo), class: "mr-2" do %>
+    <%= image_tag photo.variant(resize: "200x200", auto_orient: true), class: "rounded" %>
+  <% end %>
+<% end %>
+
+<div class="mt-4">
+  <%= link_to "Назад", :back %>
+</div>

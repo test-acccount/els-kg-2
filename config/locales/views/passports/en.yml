@@ -1,0 +1,12 @@
+en:
+  passports:
+    new:
+      title: "Enter your passport details"
+      photos_are_required: "Photos or scans of your passport (2 sides) are required for customs clearance"
+    create:
+      notice: "Passports details saved"
+  helpers:
+    submit:
+      passport:
+        create: "Save"
+        update: "Update"

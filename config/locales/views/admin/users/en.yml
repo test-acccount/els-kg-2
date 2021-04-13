@@ -1,0 +1,7 @@
+en:
+  admin:
+    users:
+      index:
+        title: "Users"
+        search_placeholder: "Name, Last name or email"
+        search: "Search"

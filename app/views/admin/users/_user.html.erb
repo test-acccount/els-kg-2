@@ -1,0 +1,46 @@
+<div class="pv3 bb b--black-10 bn-last-child">
+  <% if user.passport %>
+    <span class="dib v-mid mr3">
+      <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <polyline fill="none" stroke="rgb(76, 217, 100)" stroke-width="1.1" points="4,10 8,15 17,4"></polyline></svg>
+    </span>
+  <% else %>
+    <span class="dib v-mid mr3">
+      <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <circle fill="none" stroke="rgb(255, 59, 48)" stroke-width="1.1" cx="10" cy="10" r="9"></circle> <line fill="none" stroke="rgb(255, 59, 48)" stroke-width="1.1" x1="4" y1="3.5" x2="16" y2="16.5"></line></svg>
+    </span>
+  <% end %>
+
+  <span class="mr2 black-50">
+    <%= user.id %>
+  </span>
+
+  <%= user.email %>
+
+  <% if user.passport %>
+    <span class="f5 ml2">
+      <%= user.passport.first_name %>
+    </span>
+    <span class="f5 mr1">
+      <%= user.passport.last_name %>
+    </span>
+    <span class="f5 black-60 mr2">
+      <%= user.passport.phone %>
+    </span>
+    <span>
+      <% user.passport.photos.each do |photo| %>
+        <%= link_to photo, class: "link dib v-mid" do %>
+          <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <circle cx="16.1" cy="6.1" r="1.1"></circle> <rect fill="none" stroke="#000" x="0.5" y="2.5" width="19" height="15"></rect> <polyline fill="none" stroke="#000" stroke-width="1.01" points="4,13 8,9 13,14"></polyline> <polyline fill="none" stroke="#000" stroke-width="1.01" points="11,12 12.5,10.5 16,14"></polyline></svg>
+        <% end %>
+      <% end %>
+    </span>
+  <% end %>
+
+  <span class="f6 black-40 ml3">
+    <%= user.current_sign_in_at.strftime("%d-%m-%Y %T") %>
+  </span>
+
+  <% if user.admin? %>
+    <span class="br-pill bg-els-purple white ph2 pv1 ml3 f6">Admin</span>
+  <% elsif user.super_admin? %>
+    <span class="br-pill bg-els-purple white ph2 pv1 ml3 f6">Super Admin</span>
+  <% end %>
+</div>

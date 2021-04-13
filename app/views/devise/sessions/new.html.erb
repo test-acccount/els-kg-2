@@ -1,0 +1,39 @@
+<%= content_for :title do %>
+  <%= t(".sign_in") %>
+<% end %>
+
+<div class="p-4 md:p-8 rounded shadow-small">
+  <h1 class="text-center leading-none mb-6"><%= t(".sign_in") %></h1>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="mb-3">
+      <%= f.label :email, class: "block font-semibold mb-1" %>
+      <%= f.email_field :email,
+                        autofocus: true,
+                        autocomplete: "email",
+                        class: "form-field" %>
+    </div>
+    <div>
+      <div class="flex justify-between items-center mb-1">
+        <%= f.label :password, class: "block font-semibold" %>
+        <%= link_to t("devise.shared.links.forgot_your_password"),
+          new_password_path(resource_name), class: "text-sm text-grey-dark" %>
+      </div>
+      <%= f.password_field :password,
+                           autocomplete: "current-password",
+                           class: "form-field" %>
+    </div>
+
+    <%= f.submit t("devise.shared.links.sign_in"), class: "mt-5 btn btn-primary w-full" %>
+  <% end %>
+
+  <div class="mt-5 text-center">
+    <%= t("devise.shared.links.don_t_have_an_account") %>
+    <%= link_to t("devise.shared.links.sign_up"), new_user_registration_path %>
+  </div>
+</div>
+
+<div class="mt-5 text-center">
+  <%= link_to omniauth_localized_google_oauth2_path, class: "btn" do %>
+    <span><%= t("devise.shared.links.sign_in_with_provider", provider: "Google") %></span>
+  <% end %>
+</div>

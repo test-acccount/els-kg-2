@@ -1,0 +1,19 @@
+<%= simple_form_for [:admin, @news] do |f| %>
+
+  <div class="w-100 w-50-ns">
+    <%= f.input :title %>
+  </div>
+
+  <trix-editor input="news_content"></trix-editor>
+  <%= f.input :content, as: :hidden %>
+
+  <% if add_new %>
+    <%= check_box_tag :notify_users %>
+    <%= label_tag :notify_users, t(".notify_users") %>
+  <% end %>
+
+  <div class="mt4">
+    <%= f.button :submit, class: "mr2 bg-els-purple" %>
+    <%= link_to t("cancel"), admin_news_index_path, class: "no-underline dib grow f6 br1 ph3 pv2 white bg-gray" %>
+  </div>
+<% end %>

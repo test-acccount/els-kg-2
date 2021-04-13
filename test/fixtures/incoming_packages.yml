@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tracking: 1Z976Y020322410883
+
+two:
+  tracking: 1ZW64107YW15444996

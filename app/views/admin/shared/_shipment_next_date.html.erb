@@ -1,0 +1,7 @@
+<div class="pv3 bt bb b--black-10 f6 tc black-70">
+  <%= t(".label") %>
+  <strong><%= ShipmentNextDate.first.date.strftime("%d-%m-%Y") %></strong>
+  <% if current_user.super_admin? %>
+    &nbsp;<%= link_to t(".edit"), edit_admin_shipment_next_date_path, class: "link els-purple" %>
+  <% end %>
+</div>

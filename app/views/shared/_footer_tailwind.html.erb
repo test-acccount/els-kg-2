@@ -1,0 +1,18 @@
+<footer class="mb-12">
+  <ul class="list-reset flex mb-4">
+    <li class="mr-2"><%= link_to t("home"), root_path %></li>
+    <li class="mr-2"><%= link_to t("navbar.services"), page_path(slug: "services") %></li>
+    <li class="mr-2"><%= link_to t("navbar.about_us"), page_path(slug: "about-us") %></li>
+    <li class="mr-2"><%= link_to t("navbar.pricing"), page_path(slug: "pricing") %></li>
+    <li class="mr-2"><%= link_to t("navbar.terms"), page_path(slug: "terms-and-conditions") %></li>
+    <li class="mr-2"><%= link_to t("navbar.working_hours"), page_path(slug: "working-hours") %></li>
+    <li class="mr-2"><%= link_to "Новости", news_index_path %></li>
+    <li class="mr-2"><%= link_to t("navbar.contact_us"), contacts_path %></li>
+  </ul>
+
+  <div class="mb-4"><%= SiteSetting.first.contact_phone_numbers %></div>
+  
+  <small class="text-sm">
+    © <%= SiteSetting.first.site_name %> 2019
+  </small>
+</footer>

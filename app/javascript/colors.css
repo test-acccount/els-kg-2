@@ -1,0 +1,64 @@
+/* Primary */
+.els-purple { color: rgb(88, 86, 214); }
+.bg-els-purple { background-color: rgb(88, 86, 214); }
+.b--els-purple { border-color: rgb(88, 86, 214); }
+
+.hover-els-purple:hover,
+.hover-els-purple:focus { color: rgb(88, 86, 214); }
+
+.hover-bg-els-purple:hover,
+.hover-bg-els-purple:focus { background-color: rgb(88, 86, 214); }
+
+/* Success */
+.els-green { color: rgb(76, 217, 100); }
+.bg-els-green { background-color: rgb(76, 217, 100); }
+.b--els-green { border-color: rgb(76, 217, 100); }
+
+.hover-els-green:hover,
+.hover-els-green:focus { color: rgb(76, 217, 100); }
+
+.hover-bg-els-green:hover,
+.hover-bg-els-green:focus { background-color: rgb(76, 217, 100); }
+
+/* Links */
+.els-blue { color: rgb(0, 122, 255); }
+.bg-els-blue { background-color: rgb(0, 122, 255); }
+.b--els-blue { border-color: rgb(0, 122, 255); }
+
+.hover-els-blue:hover,
+.hover-els-blue:focus { color: rgb(0, 122, 255); }
+
+.hover-bg-els-blue:hover,
+.hover-bg-els-blue:focus { background-color: rgb(0, 122, 255); }
+
+/* Weight */
+.els-yellow { color: rgba(255, 204, 0, 1); }
+.bg-els-yellow { background-color: rgba(255, 204, 0, 1); }
+.b--els-yellow { border-color: rgba(255, 204, 0, 1); }
+
+.hover-els-yellow:hover,
+.hover-els-yellow:focus { color: rgba(255, 204, 0, 1); }
+
+.hover-bg-els-yellow:hover,
+.hover-bg-els-yellow:focus { background-color: rgba(255, 204, 0, 1); }
+
+.els-yellow-70 { color: rgba(255, 204, 0, .7); }
+.bg-els-yellow-70 { background-color: rgba(255, 204, 0, .7); }
+.b--els-yellow-70 { border-color: rgba(255, 204, 0, .7); }
+
+.hover-els-yellow-70:hover,
+.hover-els-yellow-70:focus { color: rgba(255, 204, 0, .7); }
+
+.hover-bg-els-yellow-70:hover,
+.hover-bg-els-yellow-70:focus { background-color: rgba(255, 204, 0, .7); }
+
+/* Warehouse status */
+.els-teal-blue { color: rgb(90, 200, 250); }
+.bg-els-teal-blue { background-color: rgb(90, 200, 250); }
+.b--els-teal-blue { border-color: rgb(90, 200, 250); }
+
+.hover-els-teal-blue:hover,
+.hover-els-teal-blue:focus { color: rgb(90, 200, 250); }
+
+.hover-bg-els-teal-blue:hover,
+.hover-bg-els-teal-blue:focus { background-color: rgb(90, 200, 250); }

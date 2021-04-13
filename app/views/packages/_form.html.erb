@@ -1,0 +1,16 @@
+<%= simple_form_for @package, wrapper: :form do |f| %>
+  <%= f.input :tracking, autofocus: true, input_html: { class: "w-3/5" } %>
+  <div id="package_items">
+    <%= f.simple_fields_for :package_items do |package_item| %>
+      <%= render "package_item_fields", f: package_item %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t(".add_package_item"), f, :package_items %>
+    </div>
+  </div>
+
+  <div class="mt-6">
+    <%= f.button :submit, class: "mr-2" %>
+    <%= link_to t("cancel"), packages_path, class: "text-grey-dark hover:text-blue" %>
+  </div>
+<% end %>

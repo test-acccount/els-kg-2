@@ -1,0 +1,11 @@
+ru:
+  admin:
+    incoming_packages:
+      index:
+        title: "Входящие посылки"
+        submit: "Добавить"
+      create:
+        notice: "Входящая посылка добавлена"
+        alert: "Посылка уже есть в системе"
+      destroy:
+        alert: "Входящая посылка удалена"

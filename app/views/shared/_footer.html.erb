@@ -1,0 +1,19 @@
+<footer class="bg-white black-70 ph3 ph5-ns pv5 pv5-ns bt b--black-10">
+  <div class="mw9 center">
+    <div class="mb4 lh-copy">
+      <%= link_to t("home"), root_path, class: "black-70 link hover-els-blue b dib mr3 mb3" %>
+      <%= link_to t("navbar.services"), page_path(slug: "services"), class: "black-70 link hover-els-blue b dib mr3 mb3" %>
+      <%= link_to t("navbar.about_us"), page_path(slug: "about-us"), class: "black-70 link hover-els-blue b dib mr3 mb3" %>
+      <%= link_to t("navbar.pricing"), page_path(slug: "pricing"), class: "black-70 link hover-els-blue b dib mr3 mb3" %>
+      <%= link_to t("navbar.terms"), page_path(slug: "terms-and-conditions"), class: "black-70 link hover-els-blue b dib mr3 mb3" %>
+      <%= link_to t("navbar.working_hours"), page_path(slug: "working-hours"), class: "black-70 link hover-els-blue b dib mr3 mb3" %>
+      <%= link_to t("navbar.contact_us"), page_path(slug: "contact-us"), class: "black-70 link hover-els-blue b dib mr3 mb3" %>
+    </div>
+  </div>
+  <div>
+    +996 (501) 00-88-20, +996 (550) 60-57-12
+  </div>
+  <small class="f6 measure db lh-copy mt4">
+    © <%= SiteSetting.first.site_name %> 2019
+  </small>
+</footer>

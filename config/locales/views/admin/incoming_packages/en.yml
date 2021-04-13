@@ -1,0 +1,11 @@
+en:
+  admin:
+    incoming_packages:
+      index:
+        title: "Incoming packages"
+        submit: "Add"
+      create:
+        notice: "Incoming package added"
+        alert: "Package already added"
+      destroy:
+        alert: "Incoming package deleted"

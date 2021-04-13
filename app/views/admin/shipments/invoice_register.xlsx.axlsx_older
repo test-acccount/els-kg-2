@@ -1,0 +1,103 @@
+wb = xlsx_package.workbook
+wb.styles do |s|
+  title     = s.add_style :b => true,
+                          :sz => 24,
+                          :alignment => { :horizontal => :center,
+                                          :vertical => :center }
+  title_md = s.add_style b: true, sz: 16, alignment: { horizontal: :center, vertical: :center }
+  header    = s.add_style :b => true,
+                          :border => { :style => :thin, :color => "00" },
+                          :alignment => { :horizontal => :center,
+                                          :vertical => :center,
+                                          :wrap_text => true }
+  wrap_text = s.add_style :border => { :style => :thin, :color => "00" },
+                          :alignment => { :horizontal => :center,
+                                          :vertical => :center,
+                                          :wrap_text => true }
+  wrap_text_left = s.add_style :border => { :style => :thin, :color => "00" },
+                          :alignment => { :horizontal => :left,
+                                          :vertical => :center,
+                                          :wrap_text => true }
+  wrap_header = s.add_style :alignment => { :wrap_text => true }
+  footer = s.add_style :b => true, :alignment => { :horizontal => :right, :vertical => :center, :wrap_text => true }
+  center = s.add_style :alignment => { :horizontal => :center, :vertical => :center, :wrap_text => true }
+
+  wb.add_worksheet(name: "Реестр экспресс-грузов") do |sheet|
+    sheet.merge_cells "A1:N1"
+    sheet.merge_cells "A2:N2"
+    sheet.merge_cells "A3:N3"
+    sheet.merge_cells "A4:N4"
+    sheet.merge_cells "A5:N5"
+    sheet.merge_cells "A6:N6"
+    sheet.merge_cells "A7:N7"
+    sheet.merge_cells "A8:N8"
+    sheet.merge_cells "A9:N9"
+
+    sheet.add_row [ "РЕЕСТР ЭКСПРЕСС-ГРУЗОВ" ], style: title_md
+    sheet.add_row [ nil ]
+    sheet.add_row [ "№____________________________________" ], style: center
+    sheet.add_row [ "ОсОО «Экспресс лайн сервис» г.Бишкек, ул. Токтогула 56, ИНН: 02812201110249 ОКПО: 27606110 . «19» агуста 2015г. Импорт" ], style: center
+    sheet.add_row [ "(наименование экспресс - перевозчика, дата оформления реестра, направление перемещения экспресс-грузов)" ], style: center
+    sheet.add_row [ "ЗАО «КММ», Импорт                          _______________________________________________________________________________" ], style: center
+    sheet.add_row [ "(наименование таможенного органа, которому декларируются товары; сведения о таможенной процедуре)" ], style: center
+    sheet.add_row [ nil ]
+    sheet.add_row [ nil ]
+
+    sheet.add_row [
+      "№ п/п",
+      "Номер индивидуальной накладной",
+      "Номер общей накладной",
+      "Индивидуальный грузоотправитель",
+      "Индивидуальный грузополучатель",
+      "Наименование экспресс-груза",
+      "Код экспресс-груза по ТН ВЭД ТС",
+      "Кол-во экспресс-грузов",
+      "Вес брутто/нетто, кг",
+      "Фактурная стоимость, в валюте, указанной в ком-ких док-тах",
+      "Там-ная стоимость, в валюте государств-членов таможенного союза",
+      "Расчет таможенных платежей",
+      "Сведения о документах, подтверждающих соблюдение запретов и ограничений (вид, № и дата выдачи документа)",
+      "Примечание"
+    ], style: header
+
+    @shipment.packages.each_with_index do |package, i|
+      desc_total = package.package_items.map(&:description)
+      sheet.add_row [
+        i + 1,
+        package.tracking,
+        nil,
+        nil,
+        if package.user
+          Translit.convert("#{package.user.passport.first_name} #{package.user.passport.last_name}", :russian)
+        else
+          Translit.convert("#{package.guest.first_name} #{package.guest.last_name}", :russian)
+        end,
+        desc_total.join("\n"),
+        if ["autoparts", "auto-parts"].any? { |w| desc_total.include?(w) }
+          870899
+        elsif ["toys", "игрушки"].any? { |w| desc_total.include?(w) }
+          95
+        elsif ["clothes", "clothing", "jeans", "одежда"].any? { |w| desc_total.include?(w) }
+          6114
+        elsif ["shoes", "obuv"].any? { |w| desc_total.include?(w) }
+          6404110000
+        elsif ["accessories", "accessoryes", "accesories", "acessories"].any? { |w| desc_total.include?(w) }
+          96
+        elsif ["vitamin", "vitamins", "витамины"].any? { |w| desc_total.include?(w) }
+          300450000
+        elsif ["часы", "watch", "watches"].any? { |w| desc_total.include?(w) }
+          9102
+        end,
+        1,
+        package.weight,
+        package.package_items.sum(&:price),
+        nil,
+        nil,
+        nil,
+        nil
+      ], style: wrap_text_left, types: :string
+    end
+
+    sheet.column_widths 5, 20, 8, 3, 17, 15, 10, 5, 5, 5, 8, 5, 5, 5
+  end
+end

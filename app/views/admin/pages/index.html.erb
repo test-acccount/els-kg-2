@@ -1,0 +1,15 @@
+<%= content_for :title do %>
+  <%= t(".title") %>
+<% end %>
+
+<div class="mw7 black-70 ph3 ph5-ns mt5 mb6">
+  <h1 class="f2">
+    <%= t(".title") %>
+  </h1>
+
+  <%= link_to t(".add_page"), new_admin_page_path, class: "link br1 ph3 pv2 bg-els-purple white dim f6 fw6" %>
+
+  <div class="mt4">
+    <%= render @pages %>
+  </div>
+</div>

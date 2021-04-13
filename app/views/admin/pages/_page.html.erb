@@ -1,0 +1,27 @@
+<div class="ba br2 b--black-10 mb3 ph3 pv3">
+  <div class="cf">
+    <div class="fl">
+      <span class="v-mid f5 mr2">
+        <%= page.title %>
+      </span>
+
+      <span class="v-mid f6 black-50">
+        /<%= page.slug %>
+      </span>
+    </div>
+
+    <div class="fr">
+      <%= link_to edit_admin_page_path(page), class: "link dib v-mid" do %>
+        <span class="mr2">
+          <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#000" d="M17.25,6.01 L7.12,16.1 L3.82,17.2 L5.02,13.9 L15.12,3.88 C15.71,3.29 16.66,3.29 17.25,3.88 C17.83,4.47 17.83,5.42 17.25,6.01 L17.25,6.01 Z"></path> <path fill="none" stroke="#000" d="M15.98,7.268 L13.851,5.148"></path></svg>
+        </span>
+      <% end %>
+
+      <%= link_to admin_page_path(page), class: "link dib v-mid", method: :delete, data: { confirm: t("confirmation") } do %>
+        <span>
+          <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" points="6.5 3 6.5 1.5 13.5 1.5 13.5 3"></polyline><polyline fill="none" stroke="#000" points="4.5 4 4.5 18.5 15.5 18.5 15.5 4"></polyline> <rect x="8" y="7" width="1" height="9"></rect><rect x="11" y="7" width="1" height="9"></rect><rect x="2" y="3" width="16" height="1"></rect></svg>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>

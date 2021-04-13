@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <% if content_for?(:title) %>
+        <%= yield :title %> -
+      <% end %>
+      Admin <%= SiteSetting.first.country_code %> <%= SiteSetting.first.site_name_short %>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag "application" %>
+    <%= javascript_pack_tag "application" %>
+
+    <%= stylesheet_pack_tag "admin" %>
+    <%= javascript_pack_tag "admin" %>
+
+    <%= stylesheet_pack_tag "uppy" %>
+    <%= javascript_pack_tag "uppy" %>
+  </head>
+
+  <body class="w-100 sans-serif">
+    <%= render "admin/shared/navbar" %>
+    <%= render "admin/shared/shipment_next_date" %>
+
+    <main class="bg-white">
+      <%= render "shared/alerts" %>
+
+      <%= yield %>
+    </main>
+
+    <%= render "shared/footer" %>
+  </body>
+</html>

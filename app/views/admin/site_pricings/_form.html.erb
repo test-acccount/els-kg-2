@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, @site_pricing] do |f| %>
+  <%= f.input :shipping_local %>
+  <%= f.input :shipping_usd %>
+
+  <div class="mt4">
+    <%= f.button :submit, class: "mr2 bg-els-purple" %>
+    <%= link_to t("cancel"), admin_root_path, class: "no-underline dib dim f6 br2 ph3 pv2 white bg-gray" %>
+  </div>
+<% end %>

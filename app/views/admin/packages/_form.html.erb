@@ -1,0 +1,89 @@
+<%= simple_form_for [:admin, @package] do |f| %>
+<div data-controller="admin--user-suite-number">
+  <div class="flex flex-wrap flex-nowrap-ns">
+    <div class="w-100 w-80-ns mr2">
+      <%= f.input :tracking %>
+    </div>
+    <div class="w-100 w-20-ns">
+      <% if @package.new_record? %>
+        <label for="user_suite_number" class="f6 b db mb2">Suite #</label>
+        <div class="relative">
+          <span class="absolute bg-light-gray pv2 bl bt bb b--black-20 br1 tc w-30"><%= SiteSetting.first.country_code %></span>
+          <input id="user_suite_number" type="text" data-target="admin--user-suite-number.input" data-action="keyup->admin--user-suite-number#findUser" autocomplete="off" class="absolute input-reset ba b--black-20 br1 pa2 mb2 db w-70" style="left: 2.4rem">
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% if @package.user %>
+    <div class="flex flex-wrap flex-nowrap-ns">
+      <div class="w-100 w-50-ns mr0 mr2-ns">
+        <%= label_tag "user_first_name", t("activerecord.attributes.passport.first_name"), class: "f6 b db mb2" %>
+        <%= text_field_tag "user_first_name", @package.user.passport.first_name, disabled: true, class: "input-reset ba b--black-20 pa2 mb2 db w-100 bg-near-white" %>
+      </div>
+      <div class="w-100 w-50-ns mr0 mr2-ns">
+        <%= label_tag "user_last_name", t("activerecord.attributes.passport.last_name"), class: "f6 b db mb2" %>
+        <%= text_field_tag "user_last_name", @package.user.passport.last_name, disabled: true, class: "input-reset ba b--black-20 pa2 mb2 db w-100 bg-near-white" %>
+      </div>
+      <div class="w-100 w-20-ns">
+        <%= f.input :weight, required: true, autofocus: true %>
+      </div>
+    </div>
+  <% else %>
+    <%= f.simple_fields_for :guest do |g| %>
+      <div class="flex flex-wrap flex-nowrap-ns">
+        <div class="w-100 w-50-ns mr0 mr2-ns">
+          <%= g.input :first_name, autofocus: true, autocomplete: :off, input_html: { "data-target": "admin--user-suite-number.firstName" } %>
+        </div>
+        <div class="w-100 w-50-ns mr0 mr2-ns">
+          <%= g.input :last_name, autocomplete: :off, input_html: { "data-target": "admin--user-suite-number.lastName" } %>
+        </div>
+        <div class="w-100 w-20-ns">
+          <%= f.input :weight, required: true %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div id="package_items">
+    <%= f.simple_fields_for :package_items do |package_item| %>
+      <%= render "package_item_fields", f: package_item %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t(".add_package_item"), f, :package_items, class: "f6 link dim br2 ba ph3 pv2 mb2 dib els-purple" %>
+    </div>
+  </div>
+
+  <div class="mt3">
+    <div class="mb3">
+      <% if @qr %>
+        <%= raw @qr.as_svg(offset: 0, color: '000', shape_rendering: 'crispEdges', module_size: 4) %>
+      <% end %>
+    </div>
+
+    <label class="block db text-els-black font-semibold mb2">
+      Фото посылки
+    </label>
+
+    <div class="mb2 flex">
+      <% @package.photos.each do |photo| %>
+        <div class="mr3 mb3 image-<%= photo.id %>">
+          <%= link_to url_for(photo), class: "db" do %>
+            <%= image_tag photo.variant(resize: "150x150", auto_orient: true), class: "br2" %>
+          <% end %>
+          <%= link_to 'delete', destroy_image_admin_package_path(photo.id),
+              method: :delete, remote: true %>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="uppyPhotos"></div>
+    <%= f.file_field :photos, multiple: true, direct_upload: true, hidden: true %>
+  </div>
+
+  <div class="mt4">
+    <%= f.button :submit, class: "mr2 bg-els-purple" %>
+    <%= link_to t("cancel"), admin_packages_path, class: "no-underline dib dim f6 br2 ph3 pv2 white bg-gray" %>
+  </div>
+</div>
+<% end %>

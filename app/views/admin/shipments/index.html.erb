@@ -1,0 +1,26 @@
+<%= content_for :title do %>
+  <%= t(".title") %>
+<% end %>
+
+<div class="mw9 center black-70 ph3 ph5-ns mt5 mb6">
+  <h1 class="f2">
+    <%= t(".title") %>
+  </h1>
+
+  <%= form_with url: admin_shipments_path do |f| %>
+    <span class="dib v-mid f6 fw6 bg-light-gray pv1 ph3 br-pill mr1">
+      <%= Package.pending.count %>
+    </span>
+    <span class="dib v-mid f6 fw6 bg-els-yellow-70 pv1 ph3 br-pill mr2">
+      <%= Package.pending_weight %>
+      <%= t("weight_kg") %>
+    </span>
+    <%= f.submit t(".create"), class: "dib v-mid ph3 pv2 f5 fw6 input-reset ba b--els-purple br2 bg-els-purple white dim pointer fw6 f5 mr2" %>
+  
+    <%= link_to t(".invoice"), pending_invoice_admin_shipments_path(format: :xlsx), class: "dib v-mid link br2 ph3 pv2 ba b--els-purple els-purple dim fw6 f5" %>
+  <% end %>
+
+  <div class="mt5">
+    <%= render @shipments %>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<%= content_for :title do %>
+  <%= t(".sign_up") %>
+<% end %>
+
+<div class="p-4 md:p-8 rounded shadow-small">
+  <h1 class="text-center leading-none mb-6"><%= t(".sign_up") %></h1>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: :form) do |f| %>
+    <%= f.input :email,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :password,
+                required: true,
+                hint: t("devise.shared.minimum_password_length", count: @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+
+    <%= f.button :submit, t("devise.shared.links.sign_up"), class: "mt-2 w-full" %>
+  <% end %>
+
+  <div class="mt-5 text-center">
+    <%= t("devise.shared.links.have_an_account") %>
+    <%= link_to t("devise.shared.links.sign_in"), new_user_session_path %>
+  </div>
+</div>
+
+<div class="mt-5 text-center">
+  <%= link_to omniauth_localized_google_oauth2_path, class: "btn" do %>
+    <span><%= t("devise.shared.links.sign_in_with_provider", provider: "Google") %></span>
+  <% end %>
+</div>

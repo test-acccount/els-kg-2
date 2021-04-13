@@ -1,0 +1,22 @@
+en:
+  admin:
+    packages:
+      index:
+        title: "Packages"
+        add_or_edit: "Add or edit"
+        search_by_name_placeholder: "First or Last name"
+        search_by_name: "Search"
+        search_placeholder: "Tracking number"
+        search: "Search"
+      new:
+        title: "Add package"
+      edit:
+        title: "Edit package"
+      create:
+        notice: "Package added"
+      update:
+        notice: "Package updated"
+      destroy:
+        alert: "Package deleted"
+      form:
+        add_package_item: "Add item"

@@ -1,0 +1,16 @@
+en:
+  admin:
+    shared:
+      navbar:
+        incoming_packages: "Incoming packages"
+        packages: "Packages"
+        shipments: "Shipments"
+        users: "Users"
+        news: "News"
+        pages: "Pages"
+        site_pricing: "Pricing settings"
+        site_setting: "Site settings"
+        homepage: "Homepage"
+      shipment_next_date:
+        label: "Next shipment date is: "
+        edit: "Edit"

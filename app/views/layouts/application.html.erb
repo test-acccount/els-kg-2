@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <% if content_for?(:title) %>
+        <%= yield :title %> -
+      <% end %>
+      <%= SiteSetting.first.site_name %>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag "tailwind" %>
+    <%= stylesheet_pack_tag "application" %>
+    <%= javascript_pack_tag "application" %>
+  </head>
+
+  <body class="font-sans font-normal text-base text-els-black leading-normal">
+    <%= render "shared/navbar_tailwind" %>
+
+    <% if News.any? %>
+      <div class="border-t border-b py-2 text-center">
+        <%= link_to News.last.title, news_path(News.last.id) %>
+      </div>
+    <% end %>
+
+    <div class="max-w-lg mx-auto px-8 py-8 mb-16">
+      <%= render "shared/alerts_new" %>
+      <%= yield %>
+    </div>
+
+    <div class="px-8 pt-12 border-t">
+      <%= render "shared/footer_tailwind" %>
+    </div>
+  </body>
+</html>

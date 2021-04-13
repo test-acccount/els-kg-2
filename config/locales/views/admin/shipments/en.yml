@@ -1,0 +1,18 @@
+en:
+  admin:
+    shipments:
+      index:
+        title: "Shipments"
+        invoice: "Invoice"
+        create: "Create shipment"
+      create:
+        notice: "Shipment created"
+        alert: "Can't create shipment, scan packages first"
+      set_as_in_transit:
+        notice: "Shipment status updated"
+      set_as_arrived:
+        notice: "Shipment status updated"
+      shipment:
+        invoice: "Invoice"
+        cp_71: "CP-71"
+        invoice_registry: "Invoice registry"

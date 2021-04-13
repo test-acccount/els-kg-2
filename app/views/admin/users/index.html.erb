@@ -1,0 +1,29 @@
+<%= content_for :title do %>
+  <%= t(".title") %>
+<% end %>
+
+<div class="mw9 center black-70 ph3 ph5-ns mt5 mb6">
+  <h1 class="f2">
+    <%= t(".title") %>
+    <div class="dib v-mid f3 bg-light-gray pv1 ph3 br-pill">
+      <%= User.count %>
+    </div>
+  </h1>
+
+  <div class="mb3">
+    <%= form_tag admin_users_path, method: :get do %>
+      <div class="mr2 dib w-30">
+        <%= text_field_tag "search", params[:search], placeholder: t(".search_placeholder"), class: "input-reset ba br2 b--black-20 pa2 mb2 db w-100" %>
+      </div>
+      <div class="dib">
+        <%= submit_tag t(".search"), class: "no-underline ba dib dim pointer f5 br2 b--els-purple ph3 pv2 bg-white els-purple" %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render @users %>
+
+  <div class="mt4 center tc">
+    <%== pagy_nav(@pagy) %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+en:
+  home: "Home"
+  confirmation: "Are you sure?"
+  cancel: "Cancel"
+  weight_kg: "kg"
+  qty: "qty"
+  layouts:
+    print:
+      title: "Print"
+  devise:
+    back_to_sign_in: "Back to Login"

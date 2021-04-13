@@ -1,0 +1,27 @@
+<%= content_for :title do %>
+  <%= t(".title") %>
+<% end %>
+
+<div class="p-4 md:p-8 rounded shadow-small">
+  <h1 class="text-center leading-none mb-6"><%= t(".title") %></h1>
+  <%= simple_form_for @passport, url: passport_path, wrapper: :form do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :phone %>
+
+    <%= f.input :address_line %>
+    <%= f.input :address_city %>
+    <%= f.input :address_zipcode %>
+
+    <label class="block text-els-black font-semibold">
+      <%= t("activerecord.attributes.passport.photos") %>
+      <abbr title="<%= t('simple_form.required.text') %>">*</abbr>
+    </label>
+    <small class="block text-sm mb-3"><%= t(".photos_are_required") %></small>
+
+    <div id="uppy" data-locale="<%= current_user.locale %>"></div>
+    <%= f.file_field :photos, multiple: true, direct_upload: true, hidden: true %>
+
+    <%= f.button :submit, class: "mt-5 w-full" %>
+  <% end %>
+</div>

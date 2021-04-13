@@ -1,0 +1,7 @@
+ru:
+  admin:
+    users:
+      index:
+        title: "Пользователи"
+        search_placeholder: "Имя, фамилия или email"
+        search: "Поиск"

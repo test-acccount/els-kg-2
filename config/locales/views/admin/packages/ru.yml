@@ -1,0 +1,22 @@
+ru:
+  admin:
+    packages:
+      index:
+        title: "Посылки"
+        add_or_edit: "Добавить или изменить"
+        search_by_name_placeholder: "Имя или Фамилия"
+        search_by_name: "Поиск"
+        search_placeholder: "Трек-номер"
+        search: "Поиск"
+      new:
+        title: "Добавить посылку"
+      edit:
+        title: "Редактировать посылку"
+      create:
+        notice: "Посылка добавлена"
+      update:
+        notice: "Посылка обновлена"
+      destroy:
+        alert: "Посылка удалена"
+      form:
+        add_package_item: "Добавить товар"

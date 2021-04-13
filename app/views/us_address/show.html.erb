@@ -1,0 +1,28 @@
+<%= content_for :title do %>
+  <%= t(".title") %>
+<% end %>
+
+<div>
+  <h1 class="mb-3"><%= t(".title") %></h1>
+  
+  <h4>Street address:</h4>
+  <h2 class="mb-3">467 Carson Dr</h2>
+
+  <h4>Street address (line 2):</h4>
+  <h2 class="mb-3">Suite <%= SiteSetting.first.country_code %>-<%= 1000 + @user.id %></h2>
+
+  <h4>City:</h4>
+  <h2 class="mb-3">Bear</h2>
+
+  <h4>State / Province / Region:</h4>
+  <h2 class="mb-3">Delaware (DE)</h2>
+
+  <h4>Zipcode:</h4>
+  <h2 class="mb-3">19701</h2>
+
+  <h4>Phone:</h4>
+  <h2 class="mb-3">571-294-3347</h2>
+
+  <h4>Country:</h4>
+  <h2>United States (US)</h2>
+</div>

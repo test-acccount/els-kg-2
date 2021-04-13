@@ -1,0 +1,49 @@
+<div class="ba br3 b--black-10 mb3 ph3 pv3">
+  <div class="cf">
+    <div class="fl">
+      <div class="cf">
+        <div class="fl">
+          <span class="dib v-mid mr3">
+            <%= shipment.created_at.strftime("%d-%m-%Y %T") %>
+          </span>
+
+          <span class="dib v-mid f6 fw6 bg-light-gray pv1 ph3 br-pill mr2">
+            <%= shipment.packages.count %>
+          </span>
+
+          <span class="dib v-mid f6 fw6 bg-els-yellow-70 pv1 ph3 br-pill mr3">
+            <%= shipment.packages.sum(:weight) %>
+            <%= t("weight_kg") %>
+          </span>
+
+          <div class="dib v-mid">
+            <% if shipment.status_arrived? %>
+              <span class="ph2 pv1 ba br2 b--els-purple els-purple">
+            <% else %>
+              <span class="ph2 pv1 bl bt bb br2 br--left b--els-purple els-purple">
+            <% end %>
+                <%= t("activerecord.attributes.shipment.status.#{shipment.status}") %>
+              </span>
+            
+            <% if shipment.status_preparing? %>
+              <%= link_to t("activerecord.attributes.shipment.status.in_transit"), set_as_in_transit_admin_shipment_path(shipment), method: :patch,
+                  class: "no-underline dim ph2 pv1 bt bb br br2 br--right b--els-purple bg-els-purple white shadow-1" %>
+            <% elsif shipment.status_in_transit? %>
+              <%= link_to t("activerecord.attributes.shipment.status.arrived"), set_as_arrived_admin_shipment_path(shipment), method: :patch,
+                  class: "no-underline dim ph2 pv1 bt bb br br2 br--right b--els-purple bg-els-purple white shadow-1" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fr">
+      <%= link_to t(".invoice"), invoice_admin_shipment_path(format: :xlsx, id: shipment),
+          'data-turbolinks': "false", class: "dib v-mid ba b--els-purple br2 bg-els-purple white ph2 pv1 no-underline dim mr2" %>
+      <%= link_to t(".cp_71"), list_cp71_admin_shipment_path(shipment),
+          'data-turbolinks': "false", class: "dib v-mid ba b--black-10 br2 ph2 pv1 no-underline els-blue dim mr2" %>
+      <%= link_to t(".invoice_registry"), invoice_register_admin_shipment_path(format: :xlsx, id: shipment),
+          'data-turbolinks': "false", class: "dib v-mid ba b--black-10 br2 ph2 pv1 no-underline els-blue dim" %>
+    </div>
+  </div>
+</div>

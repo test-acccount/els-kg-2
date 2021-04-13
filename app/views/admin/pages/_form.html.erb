@@ -1,0 +1,18 @@
+<%= simple_form_for [:admin, @page] do |f| %>
+
+  <div class="w-100 w-50-ns">
+    <%= f.input :slug %>
+  </div>
+
+  <div class="w-100">
+    <%= f.input :title %>
+  </div>
+  
+  <trix-editor input="page_content"></trix-editor>
+  <%= f.input :content, as: :hidden %>
+
+  <div class="mt4">
+    <%= f.button :submit, class: "mr2 bg-els-purple" %>
+    <%= link_to t("cancel"), admin_pages_path, class: "no-underline dib grow f6 br1 ph3 pv2 white bg-gray" %>
+  </div>
+<% end %>

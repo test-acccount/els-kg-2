@@ -1,0 +1,20 @@
+<div class="nested-fields">
+  <div class="cf">
+    <div class="fl w-100 w-60-ns mr2">
+      <%= f.input :description %>
+    </div>
+    <div class="fl w-40 w-20-ns mr2">
+      <%= f.input :price %>
+    </div>
+    <div class="fl w-40 w-10-ns mr3">
+      <%= f.input :qty %>
+    </div>
+    <div class="fl w-10 w-auto-ns relative">
+      <%= link_to_remove_association f do %>
+        <span class="absolute top-2">
+          <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" points="6.5 3 6.5 1.5 13.5 1.5 13.5 3"></polyline><polyline fill="none" stroke="#000" points="4.5 4 4.5 18.5 15.5 18.5 15.5 4"></polyline> <rect x="8" y="7" width="1" height="9"></rect><rect x="11" y="7" width="1" height="9"></rect><rect x="2" y="3" width="16" height="1"></rect></svg>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>

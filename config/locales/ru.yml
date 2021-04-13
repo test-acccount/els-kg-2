@@ -1,0 +1,11 @@
+ru:
+  home: "Главная"
+  confirmation: "Вы уверены?"
+  cancel: "Отмена"
+  weight_kg: "кг"
+  qty: "кол-во"
+  layouts:
+    print:
+      title: "Печать"
+  devise:
+    back_to_sign_in: "Назад к Войти"

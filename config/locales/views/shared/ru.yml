@@ -1,0 +1,13 @@
+ru:
+  navbar:
+    find_tracking: "Поиск трек-номера"
+    services: "Услуги"
+    about_us: "О нас"
+    pricing: "Тарифы"
+    terms: "Правила и условия"
+    working_hours: "График работы"
+    contact_us: "Контакты"
+    packages: "Посылки"
+    my_us_address: "Мой адрес в США"
+    edit_account: "Редактировать аккаунт"
+    logout: "Выйти"
